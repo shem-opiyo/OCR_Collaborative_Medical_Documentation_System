@@ -1,6 +1,6 @@
 
-# Medical Application Documentation System  
-*Focused on Robust Voice Transcription Pipeline*
+# Collaborative Medical Documentation System  
+*Optical Character Recognition Pipeline*
 
 ---
 
