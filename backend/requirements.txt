@@ -1,0 +1,16 @@
+asgiref==3.8.1
+Django==5.2
+djangorestframework==3.16.0
+numpy==2.2.5
+opencv-python==4.11.0.86
+pillow==11.2.1
+sqlparse==0.5.3
+speechbrain==1.0.3
+torch==2.6.0
+torchaudio==2.6.0
+denoiser==0.1.5
+faster_whisper==1.1.1
+happytransformer==3.0.0
+sci-kit-learn==1.5.2
+django-cors-headers==4.7.0
+

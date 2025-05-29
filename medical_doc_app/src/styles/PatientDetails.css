@@ -1,0 +1,138 @@
+/* General Page Styles */
+.patient-history-page,
+.visit-detail-page {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  align-items: center;
+}
+
+/* Section Titles */
+.patient-history-page h2,
+.visit-detail-page h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+/* Visit Card Styles */
+.visit-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #e0f7fa, #e0f2f1);
+  text-decoration: none;
+  color: #333;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.05);
+}
+
+.visit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Visit Detail Section */
+.notes-section {
+  margin-top: 2rem;
+}
+
+.note {
+  background: #f9f9f9;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #555;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* General Buttons */
+button {
+  padding: 0.75rem 1.5rem;
+  background: #00c9a7;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #00a68c;
+}
+
+.add-visit-button {
+  background: #4a9e89;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.detail-value {
+    font-weight: normal;
+    color: #555;
+}
+
+.visit-detail-page {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: sans-serif;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.detail-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.aqua-container {
+    background-color: #e0ffff; /* Aqua color */
+}
+
+strong {
+    font-weight: bold;
+    display: block; /* Make the strong act as a header */
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.detail-body {
+    display: block; /* Make each span appear on a new line */
+    color: #555;
+    margin-left: 10px;
+}
+
+.notes-section {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    background-color: #f9f9f9;
+}
+
+.note {
+    margin-bottom: 5px;
+}
+
+.note-item {
+    color: #777;
+}

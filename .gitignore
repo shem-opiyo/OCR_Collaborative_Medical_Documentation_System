@@ -1,0 +1,13 @@
+backend/*/__pycache__/*.py[cod]
+backend/pretrained_models
+backend/media
+backend/test_audio
+backend/output_transcriptions
+
+
+/.qodo
+/.trial_venv
+backend/db.sqlite3
+admin.postman_collection
+backend/temp_denoised.wav
+medical_doc_app/node_modules/

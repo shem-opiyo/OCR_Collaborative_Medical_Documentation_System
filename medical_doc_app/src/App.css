@@ -1,0 +1,134 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f6f8fa;
+}
+
+.home-container,
+.patients-container,
+.edit-patient-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px;
+  background-color: #00c9a7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #00b093;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #00c9a7;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.new-patient-form-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.new-patient-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-patient-form label {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-patient-form input,
+.new-patient-form select {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.patient-card {
+  background: #d4d4d4;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-button {
+  background: rgb(250, 136, 136);
+  padding: 5px;
+  color: #ffffff;
+  border-radius: 6px;
+  align-items: center;
+  padding-right: 10px;
+  position: relative;
+  right: 18vw;
+}
+
+.back-button:hover {
+  background: rgb(211, 107, 107);
+  font-size: 1.3rem;
+  color: rgb(58, 58, 58);
+  transition: all 0.3s ease;
+}
+
+
