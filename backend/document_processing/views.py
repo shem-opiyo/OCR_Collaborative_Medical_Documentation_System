@@ -20,6 +20,8 @@ import matplotlib.pyplot as plt
 import requests
 from .doc_processor import classify_sentence, extract_entities
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from google.cloud import vision
+import io
 
 # # Load once when the server starts
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -124,8 +126,8 @@ def extract_entities_from_sentence(text):
 #handle text extraction
 @csrf_exempt
 def process_image_view(request):
-    # Path to input image
-    img_path = os.path.join(settings.MEDIA_ROOT, 'uploads/images/test1.png')   
+    # Path to input image 
+    img_path = os.path.join(settings.MEDIA_ROOT, 'uploads/images/processed/processed_image.jpg') 
     if not os.path.exists(img_path):
         return JsonResponse({'error': 'Image not found.'}, status=404)
 
@@ -220,7 +222,21 @@ def process_image_view(request):
                     "entities": entities
                 })
             else:
-                line = f"Word #{idx} ({x1},{y1},{x2},{y2}) → <{label} skipped>\n"
+                # Convert ROI to bytes for Google Cloud Vision
+                client = vision.ImageAnnotatorClient()
+                success, encoded_image = cv2.imencode('.png', roi)
+                content = encoded_image.tobytes()
+
+                image = vision.Image(content=content)
+                response = client.text_detection(image=image)
+                annotations = response.text_annotations
+
+                if annotations:
+                     text = annotations[0].description.strip()
+                else:
+                            text = ""
+
+                line = f"Word #{idx} ({x1},{y1},{x2},{y2}) → <{label} detected: {repr(text)}>\n"
 
                 #classify the image into classes
                 predicted_class = classify_sentence(text)

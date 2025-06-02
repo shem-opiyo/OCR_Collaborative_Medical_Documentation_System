@@ -77,10 +77,15 @@ _Enable Web Apps (PWAs) to work offline and sync later__
 
   
 ### 🧠 Models
-__Pretrained models:__
-   [download_link](https://drive.google.com/drive/folders/1JPqmJOLDqAob1TiI3wN7B6YOVN_9-NXo?usp=drive_link)
+__Front end models:__
 
-__Custom Trained Models:__
-   [download link](https://drive.google.com/drive/folders/1BP2W85IG9WiNkp2eSlhge30g5asz91xF?usp=drive_link)
+__BERT__:
+   [download_link](https://drive.google.com/drive/folders/1FHKA9V9G-he-vXEVv54uego5YAeUQSAk?usp=drive_link)
+
+__Entity Recognition Models:__
+   [download link](https://drive.google.com/drive/folders/1l36nXNzbN5H0lVtNKj18f9rWBQz0-zdq?usp=drive_link)
+
+__YOLOv5 Model__:
+   [download link](https://drive.google.com/drive/folders/1XUAtjmgZF1bkGldtue_JfDll95ypzgEu?usp=drive_link)
 
 
