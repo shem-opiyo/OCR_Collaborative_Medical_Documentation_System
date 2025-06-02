@@ -107,6 +107,20 @@ def classify_text(text):
     except Exception as e:
         return f"classification_error: {str(e)}"
 
+#handle named entity recognition
+def extract_entities_from_sentence(text):
+    """
+    Helper function to extract named entities from a sentence using preloaded NER models.
+    """
+    if not text or not text.strip():
+        return {"error": "No valid text provided for entity extraction."}
+
+    try:
+        extracted_entities = extract_entities(text)
+        return extracted_entities
+    except Exception as e:
+        return {"error": f"Entity extraction failed: {str(e)}"}
+
 #handle text extraction
 @csrf_exempt
 def process_image_view(request):
@@ -193,24 +207,31 @@ def process_image_view(request):
 
                 #classify the image into classes
                 predicted_class = classify_sentence(text)
+                
+                # extract entities from text
+                entities = extract_entities_from_sentence(text)
+
                 results_data.append({
                     'index': idx,
                     'bbox': [x1, y1, x2, y2],
                     'label': 'typed',
                     'text': text,
-                    "predicted_class": predicted_class
+                    "predicted_class": predicted_class,
+                    "entities": entities
                 })
             else:
                 line = f"Word #{idx} ({x1},{y1},{x2},{y2}) → <{label} skipped>\n"
 
                 #classify the image into classes
                 predicted_class = classify_sentence(text)
+                entities = extract_entities_from_sentence(text)
                 results_data.append({
                     'index': idx,
                     'bbox': [x1, y1, x2, y2],
                     'label': label,
                     'text': None,
-                    "predicted_class": predicted_class
+                    "predicted_class": predicted_class,
+                    "entities": entities
                 })
 
             # write each line immediately

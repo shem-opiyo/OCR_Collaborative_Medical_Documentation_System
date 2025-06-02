@@ -1,47 +1,51 @@
 
-# Medical Application Documentation System  
-*Focused on Robust Voice Transcription Pipeline*
+# Collaborative Medical Documentation System  
+*Optical Character Recognition Pipeline*
 
 ---
 
 ## Process Overview  
 
-### 🎤 Audio Processing Pipeline
-**Step 1 - Audio Input**  
-   _How we take and segment audio input_
+###  OCR Processing Pipeline
+**Step 1 - Document Capture**  
+   - Upload an image of the document (via picture or image uploads)
 
-**Step 2 - Audio Preprocessing**  
-   _Amplification and denoising the audio_
+**Step 2 - Image Preprocessing**  
+   - Use  auto-capture guidance (e.g., edge detection) to ensure document alignment.
+   - conduct image preprocessing (Deskewing, Contrast enhancement, binarization)
+   - Perform region detection to identify important document elements and regions, such as lines, words, and text blocks. This allows the system to segment the detected regions.
+   - note the coordinates of the detected regions are noted and and crop the regions are cropped.
+   -The cropped segments are then classified as handwritten or typed before being passed to OCR models for text extraction.
 
-**Step 3 - Transcription**  
-   _Convert audio to text using speech recognition_
 
-**Step 3.5 - Speaker Diarization**  
-   _Classify speakers and timestamp their utterances_
+**Step 3 - OCR processing**  
+   - conduct text extraction from scanned regions.   
 
 ---
-### 📄 OCR Integration Points
+### 📄 Voice Transcription Integration Points
 ```plaintext
 ------------------------------------------
-Non-classified OCR input enters here
+This is the point where the OCR and voice transcription pipelines meet and integrate.
 ------------------------------------------
 ```
-**Step 4 - Text Classification**
-_Group contextualized text using diarization data_
+**Step 4 - Text and context Classification**
+- Through classification, refine the extracted data with medically fine-tuned models.
+   ```
+   - refine the extracted text using a BERT model.
+   - Group sentences by semantic meaning.
+   ```
 
-**Step 5 - Context Classification**
-_Group sentences by semantic meaning_
+**Step 6 - Data structuring**
+- Identify key entities from contextualized text
+- Perform entity recognition on the extracted data to structure the data into fields such as (patient ID, date, medication, dosage).
 
-**Step 6 - Entity Extraction**
-_Identify key entities from contextualized text_
-```
-------------------------------------------
-Classified OCR input enters here
-------------------------------------------
-```
-**Step 7 - Data Processing**
-__Route extracted data to appropriate destinations__
-
+**Step 7 - Validation and Error Checking**
+ - Human-in-the-Loop and cross referencing.
+ - users review the captured data via a dashboard and correct them as required.
+ **EHR Integration**
+_use postgreSQL to store structured data temporarily before EHR sync__
+_ HL7 Compliance: Convert structured data into HL7 standards for EHR systems.__
+_Enable Web Apps (PWAs) to work offline and sync later__
 
 **Technical Requirements**
 🌐 Languages
@@ -51,15 +55,15 @@ __Route extracted data to appropriate destinations__
 📦 Python Modules
 #### Core Processing
 - subprocess  # OS calls
-- ffmpeg      # Audio modification
+
 
 #### Machine Learning
-- torch
-- torchaudio
-- denoiser
-- pyannote.audio
-- faster_whisper
-- speechbrain
+- Google Cloud Vision AI
+- Tesseract OCR
+- Pytesseract
+- BERT
+- SpaCy
+- YOLOv5
 
 #### NLP Processing
 - spacy
